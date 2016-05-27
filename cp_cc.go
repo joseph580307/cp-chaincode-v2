@@ -259,7 +259,7 @@ func (t *SimpleChaincode) issueCommercialPaper(stub *shim.ChaincodeStub, args []
 	var err error
 	var account Account
 
-	fmt.Println("Unmarshalling CP")
+	fmt.Println("Unmarshalling CP....201605271102")
 	err = json.Unmarshal([]byte(args[0]), &cp)
 	if err != nil {
 		fmt.Println("error invalid paper issue")
@@ -295,7 +295,7 @@ func (t *SimpleChaincode) issueCommercialPaper(stub *shim.ChaincodeStub, args []
 		return nil, errors.New("Error generating CUSIP")
 	}
 
-	fmt.Println("Marshalling CP bytes")
+	fmt.Println("Marshalling CP bytes.....201605211103")
 	cp.CUSIP = account.Prefix + suffix
 	
 	fmt.Println("Getting State on CP " + cp.CUSIP)
@@ -327,7 +327,7 @@ func (t *SimpleChaincode) issueCommercialPaper(stub *shim.ChaincodeStub, args []
 		
 		
 		// Update the paper keys by adding the new key
-		fmt.Println("Getting Paper Keys")
+		fmt.Println("Getting Paper Keys....201605211104")
 		keysBytes, err := stub.GetState("PaperKeys")
 		if err != nil {
 			fmt.Println("Error retrieving paper keys")
