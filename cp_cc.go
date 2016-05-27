@@ -296,9 +296,10 @@ func (t *SimpleChaincode) issueCommercialPaper(stub *shim.ChaincodeStub, args []
 	}
 
 	fmt.Println("Marshalling CP bytes.....201605211103")
-	cp.CUSIP = account.Prefix + suffix
+	cp.CUSIP = cp.Par+":"+ account.Prefix + suffix
 	
-	fmt.Println("Getting State on CP " + cp.CUSIP)
+	
+	fmt.Println("Getting State on CP " + cpPrefix + cp.CUSIP)
 	cpRxBytes, err := stub.GetState(cpPrefix+cp.CUSIP)
 	if cpRxBytes == nil {
 		fmt.Println("CUSIP does not exist, creating it")
