@@ -296,12 +296,7 @@ func (t *SimpleChaincode) issueCommercialPaper(stub *shim.ChaincodeStub, args []
 		return nil, errors.New("Error generating CUSIP")
 	}
 
-        cpKey, err :=strconv.FormatFloat(cp.Par, 'f', 0, 64)
-        
-        if err != nil {
-		fmt.Println("Error to convert cpKey")
-		return nil, errors.New("Error to convert cpKe")
-	}
+        cpKey=strconv.FormatFloat(cp.Par, 'f', 0, 64)
         
 	fmt.Println("Marshalling CP bytes.....201605211103")
 	cp.CUSIP = cpKey+":"+ account.Prefix + suffix
